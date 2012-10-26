@@ -23,11 +23,20 @@ The categories import expects one column name category, with a path of the categ
 
 e.g.
 
-category       
--------------------------------
-Beer & Ale//Beer//American Beer
-Beer & Ale//Beer//Belgian Beer
-Beer & Ale//Ale//Dorset Ale
+<table>
+  <tr>
+    <th>category</th>
+  </tr>
+  <tr>
+    <td>Beer & Ale//Beer//American Beer</td>
+  </tr>
+  <tr>
+    <td>Beer & Ale//Beer//Belgian Beer</td>
+  </tr>
+  <tr>
+    <td>Beer & Ale//Ale//Dorset Ale</td>
+  </tr>
+</table>
 
 
 ### Product
@@ -46,6 +55,19 @@ The products import expects the columns sku, price, decription, name and categor
 
 e.g.
 
-sku | name      | price | description |category
------------------------------------------------------------------------
-BUD | Budweiser | £1    | One bottle  | Beer & Ale//Beer//American Beer
+<table>
+  <tr>
+    <th>sku</th>
+    <th>name</th>
+    <th>price</th>
+    <th>description</th>
+    <th>category</th>
+  </tr>
+  <tr>
+    <td>BUD</td>
+    <td>Budweiser</td>
+    <td>£1</td>
+    <td>One bottle</td>
+    <td>Beer & Ale//Beer//American Beer</td>
+  </tr>
+</table>
