@@ -7,7 +7,7 @@ Spree::Taxon.class_eval do
 
   def import_category(category)
     return if category.field(:category).blank?
-    taxons = category.field(:category).split('\\\\')
+    taxons = category.field(:category).split('//')
     taxons.inject(self) do |parent, name|
       if parent.children.exists?(name: name)
         parent.children.where(name: name).first
