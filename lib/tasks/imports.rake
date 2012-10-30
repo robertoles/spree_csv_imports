@@ -20,7 +20,11 @@ namespace :csv do
     end
 
     task :products, [:file] => [:environment, "csv:import:console_logger"] do |t, args|
-      Spree::Product.import_products(open_csv(args[:file], [:sku, :name, :price, :description, :category]))
+      Spree::Product.import_products(open_csv(args[:file], [:sku]))
+    end
+
+    task :images, [:file, :image_directory] => [:environment, 'csv:import:console_logger'] do |t, args|
+      Spree::Product.import_images(open_csv(args[:file], [:sku, :image]), args[:image_directory])
     end
   end
 end
