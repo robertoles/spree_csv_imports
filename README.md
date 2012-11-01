@@ -98,3 +98,47 @@ e.g.
     <td>image_PROD1234.png</td>
   </tr>
 </table>
+
+## Properties
+
+Imports product properties. If it finds an existing property with the same name for the product, it updates the property value, else it creates a new property for the product.
+
+#### Usage
+
+```bash
+$ bundle exec rake csv:import:properties['/path/to/properties.csv']
+```
+
+#### CSV format
+
+The properties import expects the columns sku name and value. The name column should contain the property name and the value column the value you wish to assign that property.
+
+e.g.
+
+<table>
+  <tr>
+    <th>sku</th>
+    <th>name</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>PROD1234</td>
+    <td>Width</td>
+    <td>123</td>
+  </tr>
+  <tr>
+    <td>PROD1234</td>
+    <td>Colour</td>
+    <td>Blue</td>
+  </tr>
+  <tr>
+    <td>XXX000</td>
+    <td>Width</td>
+    <td>888</td>
+  </tr>
+  <tr>
+    <td>XXX000</td>
+    <td>Colour</td>
+    <td>Red</td>
+  </tr>
+</table>

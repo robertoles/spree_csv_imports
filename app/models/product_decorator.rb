@@ -1,5 +1,5 @@
 Spree::Product.class_eval do
-  scope :find_by_sku, lambda { |sku| includes(:master).where('spree_variants.sku = ?', sku) }
+  scope :find_by_sku, lambda { |sku| not_deleted.includes(:master).where('spree_variants.sku = ?', sku) }
 
   class << self
     def import_products(products)
@@ -46,6 +46,17 @@ Spree::Product.class_eval do
         else
           product_record.images.create(attachment: file)
         end
+      end
+    end
+
+    def import_properties(properties)
+      properties.each do |row|
+        product = find_by_sku(row.field(:sku)).first
+        unless product
+          logger.info("Import Image #{row.field(:image)}: No Product found for sku #{row.field(:sku)}")
+          next
+        end
+        product.set_property(row.field(:name), row.field(:value))
       end
     end
   end
