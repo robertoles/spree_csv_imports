@@ -1,7 +1,7 @@
 Spree::Taxonomy.class_eval do
   class << self
     def category_taxonomy
-      Spree::Taxonomy.where(name: 'Categories', purpose: 'menu').first_or_create!
+      Spree::Taxonomy.where(name: 'Categories').first_or_create!
     end
 
     def import_categories(categories)
